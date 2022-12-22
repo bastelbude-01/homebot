@@ -6,18 +6,18 @@
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
         <joint name="left_wheel_joint">
-            <comand_interface name="velocity">
+            <command_interface name="velocity">
                 <param name="min">10</param>
                 <param name="max">10</param>
-            </comand_interface>
+            </command_interface>
             <state_interface name="velocity"/>
             <state_interface name="position"/>                            
         </joint>
         <joint name="right_wheel_joint">
-            <comand_interface name="velocity">
+            <command_interface name="velocity">
                 <param name="min">10</param>
                 <param name="max">10</param>
-            </comand_interface>
+            </command_interface>
             <state_interface name="velocity"/>
             <state_interface name="position"/>                            
         </joint>
@@ -25,6 +25,7 @@
 
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+            <parameters>$(find homerobot)/config/my_controllers.yaml</parameters>
         </plugin>
     </gazebo>
 
