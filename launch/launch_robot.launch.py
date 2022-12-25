@@ -28,6 +28,18 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items() 
     )
 
+    camera = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','camera.launch.py'
+                )]) 
+    )
+
+    lidar = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','lidar.launch.py'
+                )]) 
+    )
+
     #joystick = IncludeLaunchDescription(
     #            PythonLaunchDescriptionSource([os.path.join(
     #                get_package_share_directory(package_name),'launch','joystick.launch.py'
@@ -89,8 +101,10 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
+        camera,        
         #joystick,
         delay_controller_manager,
         delayed_diff_drive_spawner,
-        delayed_joint_broad_spawner
+        delayed_joint_broad_spawner,
+        lidar
     ])

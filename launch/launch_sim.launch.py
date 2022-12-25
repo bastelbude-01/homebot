@@ -25,6 +25,12 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items() 
     )
 
+    camera = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','camera.launch.py'
+                )]) 
+    )
+
     #joystick = IncludeLaunchDescription(
     #            PythonLaunchDescriptionSource([os.path.join(
     #                get_package_share_directory(package_name),'launch','joystick.launch.py'
@@ -81,6 +87,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
+        camera,
         #joystick,
         gazebo,
         spawn_entity,
