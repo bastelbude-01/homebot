@@ -39,10 +39,8 @@
     <joint name="cassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="-0.017 0.0 0.0"/>
-        
+        <origin xyz="-0.017 0.0 0.0"/>        
     </joint>
-
 
     <link name="chassis">
         <visual>
@@ -197,7 +195,6 @@
         <origin xyz="0.110 0.0 0.069"/>        
     </joint>
 
-
     <link name="body">
         <visual>
             <origin xyz="0.0 0.0 0.0"/>
@@ -221,12 +218,13 @@
         <material>Gazebo/Orange</material>
     </gazebo>
 
+    <!-- BodyTop-->
+
     <joint name="body_top_joint" type="fixed">
         <parent link="chassis"/>
         <child link="body_top"/>
         <origin xyz="0.16 0.0 0.138"/>
-    </joint>
-
+    </joint>    
 
     <link name="body_top">
         <visual>
@@ -250,6 +248,5 @@
     <gazebo reference="body_top">
         <material>Gazebo/Orange</material>
     </gazebo>
-
 
 </robot>

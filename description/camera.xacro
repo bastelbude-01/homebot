@@ -3,9 +3,9 @@
 
     <!-- Cam-->
     <joint name="cam_joint" type="fixed">
-        <parent link="body"/>
+        <parent link="chassis"/>
         <child link="cam"/>
-        <origin xyz="0.17 0 0.07 "/>               
+        <origin xyz="-0.04 0 0.138 "/>               
     </joint>
     
     <link name="cam">
