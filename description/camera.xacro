@@ -1,35 +1,65 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <!-- Cam-->
-    <joint name="cam_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="cam"/>
-        <origin xyz="-0.04 0 0.138 "/>               
-    </joint>
-    
+   
+
+<!-- CAMERA and Cam Linse-->
+
     <link name="cam">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>            
             <geometry>
-                <box size="0.04 0.11 0.07"/>                
+                <box size="0.03 0.03 0.03"/>
             </geometry>
-            <material name="white"/>
+            <material name="orange"/>
         </visual>
         <collision>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>            
             <geometry>
-                <box size="0.04 0.11 0.07"/>               
+                <box size="0.03 0.03 0.03"/>
+            </geometry>            
+        </collision>
+        <xacro:inertial_box mass="0.1" x="0.03" y="0.03" z="0.03">
+            <origion xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </xacro:inertial_box> 
+    </link>
+
+    <link name="cam_linse">
+        <visual>
+            <geometry>
+                <cylinder radius="0.01" length="0.05"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.01" length="0.05"/>
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.2" x="0.04" y="0.11" z="0.07">
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-        </xacro:inertial_box>
     </link>
-    <gazebo reference="cam">
-        <material>Gazebo/White</material>
+
+    <link name="camera_link_optical"></link>
+
+    <gazebo reference="cam_linse">
+        <material>Gazebo/Black</material>
     </gazebo>
 
+    <joint name="cam_body_joint" type="fixed">
+        <origin xyz="0.1 0.0 0.06" rpy="${pi/2} 0.0 0.0"/>
+        <parent link="body"/>
+        <child link="cam"/>
+    </joint>
+
+    <joint name="linse_to_cam" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0 ${pi/2} 0.0"/>
+        <parent link="cam"/>
+        <child link="cam_linse"/>
+    </joint>
+
+    <joint name="camera_optical_joint" type="fixed">
+        <origin xyz="0 0.0 0.0" rpy="${-pi/2} 0.0 ${-pi/2}"/>
+        <parent link="cam"/>
+        <child link="camera_link_optical"/>
+    </joint>
+    
     <gazebo reference="cam">
         <material>Gazebo/Orange</material>
     
@@ -46,7 +76,7 @@
                 </image>
                 <clip>
                     <near>0.05</near>
-                    <far>7.0</far>                    
+                    <far>8.0</far>                    
                 </clip>
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
@@ -54,6 +84,7 @@
             </plugin>
         </sensor>
     </gazebo>
+
     
 
 </robot>
