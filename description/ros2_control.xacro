@@ -11,7 +11,7 @@
                 <param name="device">/dev/ttyUSB0</param>
                 <param name="baud_rate">57600</param>
                 <param name="timeout">1000</param>
-                <param name="enc_counts_per_rev">426</param>
+                <param name="enc_counts_per_rev">408</param>
             </hardware>
             <joint name="left_wheel_joint">
                 <command_interface name="velocity">
@@ -59,8 +59,8 @@
 
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters>$(find homerobot)/config/my_controllers.yaml</parameters>
-            <parameters>$(find homerobot)/config/gaz_ros2_ctl_use_sim.yaml</parameters>
+            <parameters>$(find scout)/config/my_controllers.yaml</parameters>
+            <parameters>$(find scout)/config/gaz_ros2_ctl_use_sim.yaml</parameters>
         </plugin>
     </gazebo>
 
