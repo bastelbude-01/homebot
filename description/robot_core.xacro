@@ -96,7 +96,7 @@
         <material>Gazebo/Blue</material>
     </gazebo>
     
-    <!-- RIGHT WHEEL LINK -->
+    <!-- RIGHT WHEEL  LINK -->
     <joint name="right_wheel_joint" type="continuous">
         <origin xyz="0 0.128 0.017" rpy="-${pi/2} 0 0"/>
         <parent link="base_link"/>
