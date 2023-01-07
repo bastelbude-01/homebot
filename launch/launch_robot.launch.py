@@ -39,11 +39,13 @@ def generate_launch_description():
                 )]) 
     )
     
-    l298n = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','l298n.launch.py'
-                )]) 
-    )
+    # Deaktivate the L298N Driver for sim mode and on dev_ws without GPIO !!!
+    
+    #l298n = IncludeLaunchDescription(
+    #            PythonLaunchDescriptionSource([os.path.join(
+    #                get_package_share_directory(package_name),'launch','l298n.launch.py'
+    #            )]) 
+    #)
 
     #joystick = IncludeLaunchDescription(
     #            PythonLaunchDescriptionSource([os.path.join(
@@ -112,5 +114,5 @@ def generate_launch_description():
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner,
         lidar,
-        l298n
+        #l298n
     ])

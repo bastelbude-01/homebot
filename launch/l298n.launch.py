@@ -9,7 +9,6 @@ def generate_launch_description():
 
         Node(
             package='l298n',
-            executable='l298n',
-            output='screen'                
+            executable='l298n'           
         )
     ])
