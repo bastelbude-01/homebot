@@ -38,6 +38,12 @@ def generate_launch_description():
                     get_package_share_directory(package_name),'launch','lidar.launch.py'
                 )]) 
     )
+    
+    l298n = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','l298n.launch.py'
+                )]) 
+    )
 
     #joystick = IncludeLaunchDescription(
     #            PythonLaunchDescriptionSource([os.path.join(
@@ -105,5 +111,6 @@ def generate_launch_description():
         delay_controller_manager,
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner,
-        lidar
+        lidar,
+        l298n
     ])
