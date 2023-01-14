@@ -108,11 +108,11 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
-        camera,        
+        #camera,
+        #lidar,
         #joystick,
         delay_controller_manager,
         delayed_diff_drive_spawner,
-        delayed_joint_broad_spawner,
-        lidar,
-        #l298n
+        delayed_joint_broad_spawner        
+        
     ])
