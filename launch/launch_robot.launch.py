@@ -110,6 +110,7 @@ def generate_launch_description():
         rsp,
         camera,
         lidar,
+        #l298n,
         #joystick,
         delay_controller_manager,
         delayed_diff_drive_spawner,
