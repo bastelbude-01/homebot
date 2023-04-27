@@ -98,7 +98,7 @@ def generate_launch_description():
         camera,
         lidar,
         #l298n,
-        joystick,
+        #joystick,
         delay_controller_manager,
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner        
