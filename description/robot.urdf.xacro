@@ -11,9 +11,13 @@
 
     <xacro:include filename="camera.xacro"/>
 
-    <xacro:include filename="gazebo_control.xacro"/> 
+    <xacro:include filename="ros2__controller.xacro"/>
+
+     
 
     <!--
+    <xacro:include filename="gazebo_control.xacro"/>
+
 
     <xacro:if value="$(arg use_ros2_control)">
         <xacro:include filename="ros2_control.xacro"/>
